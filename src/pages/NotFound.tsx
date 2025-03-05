@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { AlertCircle } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { AlertCircle } from "lucide-react";
 
 export default function NotFound() {
   return (

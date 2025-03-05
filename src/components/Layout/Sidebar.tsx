@@ -103,7 +103,7 @@ export default function Sidebar() {
                         : "translateX(-20px)",
                   }}
                 >
-                  Darling AI
+                  Logo
                 </Typography>
               ) : null}
             </IconButton>

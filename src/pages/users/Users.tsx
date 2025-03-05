@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks"; // Import the custom hooks
 import { fetchUsers } from "../../store/slices/userSlice";
 import {
   Table,
@@ -17,10 +16,8 @@ import {
 } from "@mui/material";
 
 export default function Users() {
-  const dispatch = useDispatch();
-  const { users, loading, error } = useSelector(
-    (state: RootState) => state.users
-  );
+  const dispatch = useAppDispatch(); // Use typed dispatch
+  const { users, loading, error } = useAppSelector((state) => state.users); // Use typed selector
 
   useEffect(() => {
     dispatch(fetchUsers());

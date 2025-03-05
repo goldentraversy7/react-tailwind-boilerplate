@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import dashboardReducer from './slices/dashboardSlice';
-import userReducer from './slices/userSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import dashboardReducer from "./slices/dashboardSlice";
+import userReducer from "./slices/userSlice";
 
 export const store = configureStore({
   reducer: {

@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { useAuthStore } from '../store/authStore';
-import { UserPlus } from 'lucide-react';
+import { useState } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
+import { UserPlus } from "lucide-react";
 
 export default function Register() {
   const navigate = useNavigate();
   const location = useLocation();
   const register = useAuthStore((state) => state.register);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await register({ name, email, password });
-      const from = location.state?.from?.pathname || '/dashboard';
+      const from = location.state?.from?.pathname || "/dashboard";
       navigate(from, { replace: true });
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      setError("Registration failed. Please try again.");
     }
   };
 
@@ -42,9 +42,12 @@ export default function Register() {
                 {error}
               </div>
             )}
-            
+
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Full Name
               </label>
               <div className="mt-1">
@@ -61,7 +64,10 @@ export default function Register() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email address
               </label>
               <div className="mt-1">
@@ -78,7 +84,10 @@ export default function Register() {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <div className="mt-1">

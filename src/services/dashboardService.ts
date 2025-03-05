@@ -1,4 +1,4 @@
-import { axiosInstance } from '../lib/axios';
+import { axiosInstance } from "../lib/axios";
 
 interface DashboardStats {
   totalUsers: number;
@@ -9,7 +9,7 @@ interface DashboardStats {
 
 export const dashboardService = {
   getStats: async (): Promise<DashboardStats> => {
-    const response = await axiosInstance.get('/dashboard/stats');
+    const response = await axiosInstance.get("/dashboard/stats");
     return response.data;
-  }
+  },
 };

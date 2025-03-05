@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { dashboardService } from '../../services/dashboardService';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { dashboardService } from "../../services/dashboardService";
 
 interface DashboardState {
   stats: {
@@ -17,14 +17,14 @@ const initialState: DashboardState = {
     totalUsers: 0,
     activeUsers: 0,
     revenue: 0,
-    orders: 0
+    orders: 0,
   },
   loading: false,
-  error: null
+  error: null,
 };
 
 export const fetchDashboardStats = createAsyncThunk(
-  'dashboard/fetchStats',
+  "dashboard/fetchStats",
   async () => {
     const response = await dashboardService.getStats();
     return response;
@@ -32,7 +32,7 @@ export const fetchDashboardStats = createAsyncThunk(
 );
 
 const dashboardSlice = createSlice({
-  name: 'dashboard',
+  name: "dashboard",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -47,7 +47,7 @@ const dashboardSlice = createSlice({
       })
       .addCase(fetchDashboardStats.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || 'Failed to fetch dashboard stats';
+        state.error = action.error.message || "Failed to fetch dashboard stats";
       });
   },
 });
